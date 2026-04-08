@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title>CASIO</title>
@@ -10,464 +12,665 @@
     @font-face {
       font-family: 'DSEG7';
       src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Regular.woff2') format('woff2'),
-           url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Regular.woff') format('woff');
+        url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Regular.woff') format('woff');
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <!-- Estilos de tema inyectados por JS -->
   <style id="theme-style"></style>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-    html, body { width:100%; height:100%; overflow:hidden; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
 
     body {
-      display:-webkit-flex; display:flex;
-      -webkit-align-items:center; align-items:center;
-      -webkit-justify-content:center; justify-content:center;
-      font-family: 'Share Tech Mono','Courier New',monospace;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      font-family: 'Share Tech Mono', 'Courier New', monospace;
     }
 
     .watch {
-      width:92vw; height:88vh;
-      border-width:2px; border-style:solid; border-radius:6px;
-      position:relative;
-      display:-webkit-flex; display:flex;
-      -webkit-flex-direction:column; flex-direction:column;
-      overflow:hidden;
+      width: 92vw;
+      height: 88vh;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 6px;
+      position: relative;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     .watch-inner {
-      position:absolute; inset:5px;
-      border-width:1px; border-style:solid; border-radius:4px;
-      pointer-events:none; z-index:1;
+      position: absolute;
+      inset: 5px;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: 1;
     }
 
     /* HEADER */
     .header {
-      display:-webkit-flex; display:flex;
-      -webkit-flex-direction:row; flex-direction:row;
-      -webkit-align-items:center; align-items:center;
-      -webkit-justify-content:space-between; justify-content:space-between;
-      padding:1.2vh 2.5vw 0.8vh;
-      border-bottom-width:1px; border-bottom-style:solid;
-      position:relative; z-index:2;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      padding: 1.2vh 2.5vw 0.8vh;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      position: relative;
+      z-index: 2;
     }
-    .h-label { font-size:1vw; letter-spacing:0.22em; text-transform:uppercase; }
-    .modes { display:-webkit-flex; display:flex; gap:0.6vw; }
+
+    .h-label {
+      font-size: 1vw;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .modes {
+      display: -webkit-flex;
+      display: flex;
+      gap: 0.6vw;
+    }
+
     .mode-btn {
-      font-family:'Share Tech Mono','Courier New',monospace;
-      font-size:0.85vw; letter-spacing:0.15em; cursor:pointer;
-      background:none; border-width:1px; border-style:solid;
-      padding:0.3vh 0.7vw; border-radius:2px;
-      -webkit-user-select:none; user-select:none;
+      font-family: 'Share Tech Mono', 'Courier New', monospace;
+      font-size: 0.85vw;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      background: none;
+      border-width: 1px;
+      border-style: solid;
+      padding: 0.3vh 0.7vw;
+      border-radius: 2px;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     /* HORA */
     .time-block {
-      display:-webkit-flex; display:flex;
-      -webkit-flex-direction:column; flex-direction:column;
-      -webkit-align-items:center; align-items:center;
-      -webkit-justify-content:center; justify-content:center;
-      -webkit-flex:1.3; flex:1.3;
-      border-bottom-width:1px; border-bottom-style:solid;
-      position:relative; z-index:2;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-flex: 1.3;
+      flex: 1.3;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      position: relative;
+      z-index: 2;
     }
 
-    .lcd-wrap { position:relative; display:inline-block; line-height:1; }
+    .lcd-wrap {
+      position: relative;
+      display: inline-block;
+      line-height: 1;
+    }
+
     .lcd-ghost {
-      font-family:'DSEG7','Courier New',monospace;
-      font-size:20vw; letter-spacing:0.04em;
-      position:absolute; top:0; left:0; pointer-events:none;
+      font-family: 'DSEG7', 'Courier New', monospace;
+      font-size: 20vw;
+      letter-spacing: 0.04em;
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
     }
-    .lcd-real {
-      font-family:'DSEG7','Courier New',monospace;
-      font-size:20vw; letter-spacing:0.04em; position:relative;
-    }
-    .sep-blink {
-      -webkit-animation:blink 1s step-end infinite;
-      animation:blink 1s step-end infinite;
-    }
-    @-webkit-keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.06} }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.06} }
 
-    .date-row { display:-webkit-flex; display:flex; gap:4vw; margin-top:5vh; }
-    .date-chip { font-size:3vw; letter-spacing:0.22em; text-transform:uppercase; }
+    .lcd-real {
+      font-family: 'DSEG7', 'Courier New', monospace;
+      font-size: 20vw;
+      letter-spacing: 0.04em;
+      position: relative;
+    }
+
+    .sep-blink {
+      -webkit-animation: blink 1s step-end infinite;
+      animation: blink 1s step-end infinite;
+    }
+
+    @-webkit-keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.06
+      }
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.06
+      }
+    }
+
+    .date-row {
+      display: -webkit-flex;
+      display: flex;
+      gap: 4vw;
+      margin-top: 5vh;
+    }
+
+    .date-chip {
+      font-size: 3vw;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
 
     /* DOS COLUMNAS */
     .bottom {
-      display:-webkit-flex; display:flex;
-      -webkit-flex-direction:row; flex-direction:row;
-      -webkit-flex:1; flex:1;
-      position:relative; z-index:2; min-height:0;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex: 1;
+      flex: 1;
+      position: relative;
+      z-index: 2;
+      min-height: 0;
     }
+
     .panel {
-      -webkit-flex:1; flex:1;
-      display:-webkit-flex; display:flex;
-      -webkit-flex-direction:column; flex-direction:column;
-      padding:1.5vh 2.5vw; overflow:hidden;
+      -webkit-flex: 1;
+      flex: 1;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      padding: 1.5vh 2.5vw;
+      overflow: hidden;
     }
-    .panel-left { border-right-width:1px; border-right-style:solid; }
+
+    .panel-left {
+      border-right-width: 1px;
+      border-right-style: solid;
+    }
+
     .panel-label {
-      font-size:0.9vw; letter-spacing:0.3em; text-transform:uppercase;
-      margin-bottom:1vh;
-      border-bottom-width:1px; border-bottom-style:solid;
-      padding-bottom:0.5vh;
+      font-size: 0.9vw;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 1vh;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      padding-bottom: 0.5vh;
     }
 
     /* CLIMA */
-    .temp-wrap { position:relative; display:inline-block; line-height:1; }
+    .temp-wrap {
+      position: relative;
+      display: inline-block;
+      line-height: 1;
+    }
+
     .temp-ghost {
-      font-family:'DSEG7','Courier New',monospace;
-      font-size:9vw; letter-spacing:0.04em;
-      position:absolute; top:0; left:0;
+      font-family: 'DSEG7', 'Courier New', monospace;
+      font-size: 9vw;
+      letter-spacing: 0.04em;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
+
     .temp-real {
-      font-family:'DSEG7','Courier New',monospace;
-      font-size:9vw; letter-spacing:0.04em; position:relative;
+      font-family: 'DSEG7', 'Courier New', monospace;
+      font-size: 9vw;
+      letter-spacing: 0.04em;
+      position: relative;
     }
-    .temp-real sup { font-size:2.5vw; vertical-align:super; opacity:0.75; font-family:'Share Tech Mono','Courier New',monospace; }
-    .w-desc { margin-top:0.8vh; font-size:1.05vw; letter-spacing:0.1em; text-transform:uppercase; }
-    .w-meta { margin-top:0.6vh; font-size:1.05vw; line-height:1.9; }
+
+    .temp-real sup {
+      font-size: 2.5vw;
+      vertical-align: super;
+      opacity: 0.75;
+      font-family: 'Share Tech Mono', 'Courier New', monospace;
+    }
+
+    .w-desc {
+      margin-top: 0.8vh;
+      font-size: 1.05vw;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .w-meta {
+      margin-top: 0.6vh;
+      font-size: 1.05vw;
+      line-height: 1.9;
+    }
 
     /* AGENDA */
     .ev-list {
-      display:-webkit-flex; display:flex;
-      -webkit-flex-direction:column; flex-direction:column;
-      gap:0.55vh; overflow:hidden;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      gap: 0.55vh;
+      overflow: hidden;
     }
+
     .ev {
-      display:-webkit-flex; display:flex;
-      -webkit-flex-direction:column; flex-direction:column;
-      gap:0.2vh; padding:0.5vh 0.8vw;
-      border-width:1px; border-style:solid;
-      background:rgba(0,0,0,0.2);
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      gap: 0.2vh;
+      padding: 0.5vh 0.8vw;
+      border-width: 1px;
+      border-style: solid;
+      background: rgba(0, 0, 0, 0.2);
     }
+
     .ev-meta {
-      display:-webkit-flex; display:flex;
-      -webkit-flex-direction:row; flex-direction:row;
-      -webkit-align-items:center; align-items:center;
-      gap:0.8vw;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      align-items: center;
+      gap: 0.8vw;
     }
-    .ev-date { font-size:0.9vw; -webkit-flex-shrink:0; flex-shrink:0; min-width:4.5vw; letter-spacing:0.05em; }
-    .ev-time { font-size:0.9vw; -webkit-flex-shrink:0; flex-shrink:0; letter-spacing:0.04em; }
-    .ev-cal  { font-size:0.8vw; letter-spacing:0.06em; margin-left:auto; -webkit-flex-shrink:0; flex-shrink:0; }
-    .ev-title { font-size:1.15vw; letter-spacing:0.04em; white-space:normal; word-break:break-word; line-height:1.3; }
-    .msg { font-size:1.1vw; letter-spacing:0.1em; text-transform:uppercase; }
+
+    .ev-date {
+      font-size: 0.9vw;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      min-width: 4.5vw;
+      letter-spacing: 0.05em;
+    }
+
+    .ev-time {
+      font-size: 0.9vw;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+    }
+
+    .ev-cal {
+      font-size: 0.8vw;
+      letter-spacing: 0.06em;
+      margin-left: auto;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+    }
+
+    .ev-title {
+      font-size: 1.15vw;
+      letter-spacing: 0.04em;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.3;
+    }
+
+    .msg {
+      font-size: 1.1vw;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
   </style>
 </head>
+
 <body>
-<div class="watch" id="watch">
-  <div class="watch-inner" id="watch-inner"></div>
+  <div class="watch" id="watch">
+    <div class="watch-inner" id="watch-inner"></div>
 
-  <div class="header" id="header">
-    <span class="h-label" id="h-left">&#9679; CASIO &nbsp;&#183;&nbsp; WORLD TIME</span>
-    <span class="h-label" id="seconds">--</span>
-    <div class="modes">
-      <button class="mode-btn" id="btn-green" onclick="setTheme('green')">GRN</button>
-      <button class="mode-btn" id="btn-blue"  onclick="setTheme('blue')">BLU</button>
-      <button class="mode-btn" id="btn-mono"  onclick="setTheme('mono')">B&amp;W</button>
+    <div class="header" id="header">
+      <span class="h-label" id="h-left">&#9679; CASIO &nbsp;&#183;&nbsp; WORLD TIME</span>
+      <span class="h-label" id="seconds">--</span>
+      <div class="modes">
+        <button class="mode-btn" id="btn-green" onclick="setTheme('green')">GRN</button>
+        <button class="mode-btn" id="btn-blue" onclick="setTheme('blue')">BLU</button>
+        <button class="mode-btn" id="btn-mono" onclick="setTheme('mono')">B&amp;W</button>
+      </div>
+    </div>
+
+    <div class="time-block" id="time-block">
+      <div class="lcd-wrap">
+        <div class="lcd-ghost" id="clock-ghost">88<span>:</span>88</div>
+        <div class="lcd-real" id="clock-real">00<span class="sep-blink">:</span>00</div>
+      </div>
+      <div class="date-row">
+        <div class="date-chip" id="date-day">DOM</div>
+        <div class="date-chip" id="date-full">--</div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="panel panel-left" id="panel-left">
+        <div class="panel-label" id="panel-label-left">&#9650; WEATHER / COR</div>
+        <div id="weather-section">
+          <div class="msg" id="w-msg">LOADING_</div>
+        </div>
+      </div>
+      <div class="panel" id="panel-right">
+        <div class="panel-label" id="panel-label-right">&#9632; SCHEDULE &#8212; NEXT 7 DAYS</div>
+        <div class="ev-list" id="agenda-list">
+          <div class="msg">LOADING_</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password overlay -->
+    <div id="pass-overlay"
+      style="display:none;position:absolute;inset:0;z-index:100;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:12px;">
+      <div id="pass-label" style="font-family:'Share Tech Mono',monospace;font-size:3vw;letter-spacing:0.1em;">ENTER
+        PASSWORD</div>
+      <input id="pass-input" type="password" autocomplete="off" onkeydown="if(event.keyCode===13)submitPass();"
+        style="background:transparent;border-width:1px;border-style:solid;border-radius:3px;padding:8px 14px;font-family:'Share Tech Mono',monospace;font-size:3.5vw;width:50vw;text-align:center;outline:none;" />
+      <div id="pass-btn"
+        style="font-family:'Share Tech Mono',monospace;font-size:3vw;padding:8px 24px;border-width:1px;border-style:solid;border-radius:3px;cursor:pointer;letter-spacing:0.15em;"
+        onclick="submitPass()">OK</div>
+      <div id="pass-err" style="font-size:2.5vw;opacity:0.6;min-height:1em;"></div>
     </div>
   </div>
 
-  <div class="time-block" id="time-block">
-    <div class="lcd-wrap">
-      <div class="lcd-ghost" id="clock-ghost">88<span>:</span>88</div>
-      <div class="lcd-real"  id="clock-real">00<span class="sep-blink">:</span>00</div>
-    </div>
-    <div class="date-row">
-      <div class="date-chip" id="date-day">DOM</div>
-      <div class="date-chip" id="date-full">--</div>
-    </div>
-  </div>
+  <script>
+    var LAT = -31.4167, LON = -64.1833;
+    var DIAS = ['DOM', 'LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB'];
+    var MESES = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
+    var WMO = {
+      0: 'CLEAR', 1: 'MOSTLY CLR', 2: 'PART CLOUD', 3: 'OVERCAST',
+      45: 'FOG', 48: 'FREEZE FOG', 51: 'DRIZZLE', 53: 'DRIZZLE+', 55: 'DRIZZLE++',
+      61: 'RAIN', 63: 'RAIN+', 65: 'RAIN++', 71: 'SNOW', 73: 'SNOW+', 75: 'SNOW++',
+      80: 'SHOWERS', 81: 'SHOWERS+', 82: 'SHOWERS++', 85: 'SNOWFALL',
+      95: 'THUNDER', 96: 'HAIL', 99: 'HAIL+'
+    };
 
-  <div class="bottom">
-    <div class="panel panel-left" id="panel-left">
-      <div class="panel-label" id="panel-label-left">&#9650; WEATHER / BUE</div>
-      <div id="weather-section"><div class="msg" id="w-msg">LOADING_</div></div>
-    </div>
-    <div class="panel" id="panel-right">
-      <div class="panel-label" id="panel-label-right">&#9632; SCHEDULE &#8212; NEXT 7 DAYS</div>
-      <div class="ev-list" id="agenda-list"><div class="msg">LOADING_</div></div>
-    </div>
-  </div>
+    // ── TEMAS (colores directos, sin CSS variables) ────────────
+    var THEMES = {
+      green: {
+        bodyBg: '#0A0A08',
+        screenBg: '#141F0C',
+        segOn: '#B8D870',
+        segOff: '#1E2E10',
+        segDim: '#4A6228',
+        border: '#3A5220',
+        label: '#527030',
+        glow: 'rgba(168,210,80,0.35)',
+        scanline: 'rgba(0,0,0,0.22)'
+      },
+      blue: {
+        bodyBg: '#05080F',
+        screenBg: '#0A1020',
+        segOn: '#70B8FF',
+        segOff: '#0E1E32',
+        segDim: '#204060',
+        border: '#1A4070',
+        label: '#2A5080',
+        glow: 'rgba(80,160,255,0.35)',
+        scanline: 'rgba(0,0,0,0.22)'
+      },
+      mono: {
+        bodyBg: '#050505',
+        screenBg: '#0F0F0F',
+        segOn: '#DEDEDE',
+        segOff: '#1C1C1C',
+        segDim: '#4A4A4A',
+        border: '#333333',
+        label: '#444444',
+        glow: 'rgba(210,210,210,0.2)',
+        scanline: 'rgba(0,0,0,0.28)'
+      }
+    };
 
-  <!-- Password overlay -->
-  <div id="pass-overlay" style="display:none;position:absolute;inset:0;z-index:100;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:12px;">
-    <div id="pass-label" style="font-family:'Share Tech Mono',monospace;font-size:3vw;letter-spacing:0.1em;">ENTER PASSWORD</div>
-    <input id="pass-input" type="password" autocomplete="off" onkeydown="if(event.keyCode===13)submitPass();" style="background:transparent;border-width:1px;border-style:solid;border-radius:3px;padding:8px 14px;font-family:'Share Tech Mono',monospace;font-size:3.5vw;width:50vw;text-align:center;outline:none;" />
-    <div id="pass-btn" style="font-family:'Share Tech Mono',monospace;font-size:3vw;padding:8px 24px;border-width:1px;border-style:solid;border-radius:3px;cursor:pointer;letter-spacing:0.15em;" onclick="submitPass()">OK</div>
-    <div id="pass-err" style="font-size:2.5vw;opacity:0.6;min-height:1em;"></div>
-  </div>
-</div>
-
-<script>
-  var LAT=-34.6037, LON=-58.3816;
-  var DIAS =['DOM','LUN','MAR','MIÉ','JUE','VIE','SÁB'];
-  var MESES=['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
-  var WMO={0:'CLEAR',1:'MOSTLY CLR',2:'PART CLOUD',3:'OVERCAST',
-    45:'FOG',48:'FREEZE FOG',51:'DRIZZLE',53:'DRIZZLE+',55:'DRIZZLE++',
-    61:'RAIN',63:'RAIN+',65:'RAIN++',71:'SNOW',73:'SNOW+',75:'SNOW++',
-    80:'SHOWERS',81:'SHOWERS+',82:'SHOWERS++',85:'SNOWFALL',
-    95:'THUNDER',96:'HAIL',99:'HAIL+'};
-
-  // ── TEMAS (colores directos, sin CSS variables) ────────────
-  var THEMES = {
-    green: {
-      bodyBg:    '#0A0A08',
-      screenBg:  '#141F0C',
-      segOn:     '#B8D870',
-      segOff:    '#1E2E10',
-      segDim:    '#4A6228',
-      border:    '#3A5220',
-      label:     '#527030',
-      glow:      'rgba(168,210,80,0.35)',
-      scanline:  'rgba(0,0,0,0.22)'
-    },
-    blue: {
-      bodyBg:    '#05080F',
-      screenBg:  '#0A1020',
-      segOn:     '#70B8FF',
-      segOff:    '#0E1E32',
-      segDim:    '#204060',
-      border:    '#1A4070',
-      label:     '#2A5080',
-      glow:      'rgba(80,160,255,0.35)',
-      scanline:  'rgba(0,0,0,0.22)'
-    },
-    mono: {
-      bodyBg:    '#050505',
-      screenBg:  '#0F0F0F',
-      segOn:     '#DEDEDE',
-      segOff:    '#1C1C1C',
-      segDim:    '#4A4A4A',
-      border:    '#333333',
-      label:     '#444444',
-      glow:      'rgba(210,210,210,0.2)',
-      scanline:  'rgba(0,0,0,0.28)'
+    function applyTheme(t) {
+      var c = THEMES[t];
+      // Body
+      document.body.style.backgroundColor = c.bodyBg;
+      // Watch
+      var w = document.getElementById('watch');
+      w.style.backgroundColor = c.screenBg;
+      w.style.borderColor = c.border;
+      w.style.backgroundImage = 'repeating-linear-gradient(0deg,' + c.scanline + ' 0px,' + c.scanline + ' 1px,transparent 1px,transparent 3px)';
+      // Inner border
+      document.getElementById('watch-inner').style.borderColor = c.segOff;
+      // Header
+      var header = document.getElementById('header');
+      header.style.borderBottomColor = c.segOff;
+      colorEls('h-label', c.label);
+      // Mode buttons
+      var btnIds = ['green', 'blue', 'mono'];
+      for (var i = 0; i < btnIds.length; i++) {
+        var btn = document.getElementById('btn-' + btnIds[i]);
+        if (btn) {
+          btn.style.color = btnIds[i] === t ? c.segOn : c.segDim;
+          btn.style.borderColor = btnIds[i] === t ? c.segDim : c.segOff;
+        }
+      }
+      // Time block
+      document.getElementById('time-block').style.borderBottomColor = c.segOff;
+      // Clock ghost/real
+      document.getElementById('clock-ghost').style.color = c.segOff;
+      var cr = document.getElementById('clock-real');
+      cr.style.color = c.segOn;
+      cr.style.textShadow = '0 0 16px ' + c.glow + ', 0 0 40px ' + c.glow;
+      // Date chips
+      colorEls('date-chip', c.segDim);
+      var df = document.getElementById('date-full');
+      if (df) df.style.color = c.segOn;
+      // Panels
+      document.getElementById('panel-left').style.borderRightColor = c.segOff;
+      colorEls('panel-label', c.label);
+      document.getElementById('panel-label-left').style.borderBottomColor = c.segOff;
+      document.getElementById('panel-label-right').style.borderBottomColor = c.segOff;
+      // Weather
+      applyWeatherColors(c);
+      // Agenda
+      applyAgendaColors(c);
+      // Store
+      window._theme = t;
+      window._colors = c;
+      localStorage.setItem('casio-theme', t);
     }
-  };
 
-  function applyTheme(t) {
-    var c = THEMES[t];
-    // Body
-    document.body.style.backgroundColor = c.bodyBg;
-    // Watch
-    var w = document.getElementById('watch');
-    w.style.backgroundColor = c.screenBg;
-    w.style.borderColor = c.border;
-    w.style.backgroundImage = 'repeating-linear-gradient(0deg,'+c.scanline+' 0px,'+c.scanline+' 1px,transparent 1px,transparent 3px)';
-    // Inner border
-    document.getElementById('watch-inner').style.borderColor = c.segOff;
-    // Header
-    var header = document.getElementById('header');
-    header.style.borderBottomColor = c.segOff;
-    colorEls('h-label', c.label);
-    // Mode buttons
-    var btnIds = ['green','blue','mono'];
-    for (var i=0;i<btnIds.length;i++) {
-      var btn = document.getElementById('btn-'+btnIds[i]);
-      if (btn) {
-        btn.style.color = btnIds[i]===t ? c.segOn : c.segDim;
-        btn.style.borderColor = btnIds[i]===t ? c.segDim : c.segOff;
+    function colorEls(cls, color) {
+      var els = document.getElementsByClassName(cls);
+      for (var i = 0; i < els.length; i++) els[i].style.color = color;
+    }
+
+    function applyWeatherColors(c) {
+      var tg = document.querySelector('.temp-ghost');
+      var tr = document.querySelector('.temp-real');
+      var wd = document.querySelector('.w-desc');
+      var wm = document.querySelector('.w-meta');
+      if (tg) tg.style.color = c.segOff;
+      if (tr) { tr.style.color = c.segOn; tr.style.textShadow = '0 0 12px ' + c.glow; }
+      if (wd) wd.style.color = c.segDim;
+      if (wm) { wm.style.color = c.label; colorBolds(wm, c.segOn); }
+      var msg = document.getElementById('w-msg');
+      if (msg) msg.style.color = c.segDim;
+    }
+
+    function applyAgendaColors(c) {
+      var evs = document.getElementsByClassName('ev');
+      for (var i = 0; i < evs.length; i++) evs[i].style.borderColor = c.segOff;
+      colorEls('ev-date', c.segDim);
+      var todays = document.getElementsByClassName('ev-date today');
+      for (var i = 0; i < todays.length; i++) todays[i].style.color = c.segOn;
+      colorEls('ev-time', c.label);
+      colorEls('ev-title', c.segOn);
+      colorEls('ev-cal', c.label);
+      colorEls('msg', c.segDim);
+    }
+
+    function colorBolds(el, color) {
+      var bs = el.getElementsByTagName('b');
+      for (var i = 0; i < bs.length; i++) bs[i].style.color = color;
+    }
+
+    function setTheme(t) { applyTheme(t); }
+
+    // ── RELOJ ─────────────────────────────────────────────────
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function updateClock() {
+      var now = new Date();
+      document.getElementById('clock-real').innerHTML =
+        pad(now.getHours()) + '<span class="sep-blink">:</span>' + pad(now.getMinutes());
+      document.getElementById('clock-ghost').innerHTML = '88<span>:</span>88';
+      document.getElementById('seconds').textContent = pad(now.getSeconds());
+      document.getElementById('date-day').textContent = DIAS[now.getDay()];
+      document.getElementById('date-full').textContent =
+        pad(now.getDate()) + '-' + MESES[now.getMonth()] + '-' + now.getFullYear();
+      // Re-aplicar color de fecha
+      if (window._colors) {
+        document.getElementById('date-day').style.color = window._colors.segDim;
+        document.getElementById('date-full').style.color = window._colors.segOn;
+        document.getElementById('clock-ghost').style.color = window._colors.segOff;
+        var cr = document.getElementById('clock-real');
+        cr.style.color = window._colors.segOn;
+        cr.style.textShadow = '0 0 16px ' + window._colors.glow + ', 0 0 40px ' + window._colors.glow;
+        document.getElementById('seconds').style.color = window._colors.label;
       }
     }
-    // Time block
-    document.getElementById('time-block').style.borderBottomColor = c.segOff;
-    // Clock ghost/real
-    document.getElementById('clock-ghost').style.color = c.segOff;
-    var cr = document.getElementById('clock-real');
-    cr.style.color = c.segOn;
-    cr.style.textShadow = '0 0 16px '+c.glow+', 0 0 40px '+c.glow;
-    // Date chips
-    colorEls('date-chip', c.segDim);
-    var df = document.getElementById('date-full');
-    if (df) df.style.color = c.segOn;
-    // Panels
-    document.getElementById('panel-left').style.borderRightColor = c.segOff;
-    colorEls('panel-label', c.label);
-    document.getElementById('panel-label-left').style.borderBottomColor = c.segOff;
-    document.getElementById('panel-label-right').style.borderBottomColor = c.segOff;
-    // Weather
-    applyWeatherColors(c);
-    // Agenda
-    applyAgendaColors(c);
-    // Store
-    window._theme = t;
-    window._colors = c;
-    localStorage.setItem('casio-theme', t);
-  }
 
-  function colorEls(cls, color) {
-    var els = document.getElementsByClassName(cls);
-    for (var i=0;i<els.length;i++) els[i].style.color = color;
-  }
-
-  function applyWeatherColors(c) {
-    var tg = document.querySelector('.temp-ghost');
-    var tr = document.querySelector('.temp-real');
-    var wd = document.querySelector('.w-desc');
-    var wm = document.querySelector('.w-meta');
-    if (tg) tg.style.color = c.segOff;
-    if (tr) { tr.style.color = c.segOn; tr.style.textShadow = '0 0 12px '+c.glow; }
-    if (wd) wd.style.color = c.segDim;
-    if (wm) { wm.style.color = c.label; colorBolds(wm, c.segOn); }
-    var msg = document.getElementById('w-msg');
-    if (msg) msg.style.color = c.segDim;
-  }
-
-  function applyAgendaColors(c) {
-    var evs = document.getElementsByClassName('ev');
-    for (var i=0;i<evs.length;i++) evs[i].style.borderColor = c.segOff;
-    colorEls('ev-date', c.segDim);
-    var todays = document.getElementsByClassName('ev-date today');
-    for (var i=0;i<todays.length;i++) todays[i].style.color = c.segOn;
-    colorEls('ev-time', c.label);
-    colorEls('ev-title', c.segOn);
-    colorEls('ev-cal', c.label);
-    colorEls('msg', c.segDim);
-  }
-
-  function colorBolds(el, color) {
-    var bs = el.getElementsByTagName('b');
-    for (var i=0;i<bs.length;i++) bs[i].style.color = color;
-  }
-
-  function setTheme(t) { applyTheme(t); }
-
-  // ── RELOJ ─────────────────────────────────────────────────
-  function pad(n){ return n<10?'0'+n:''+n; }
-
-  function updateClock() {
-    var now=new Date();
-    document.getElementById('clock-real').innerHTML =
-      pad(now.getHours())+'<span class="sep-blink">:</span>'+pad(now.getMinutes());
-    document.getElementById('clock-ghost').innerHTML = '88<span>:</span>88';
-    document.getElementById('seconds').textContent = pad(now.getSeconds());
-    document.getElementById('date-day').textContent = DIAS[now.getDay()];
-    document.getElementById('date-full').textContent =
-      pad(now.getDate())+'-'+MESES[now.getMonth()]+'-'+now.getFullYear();
-    // Re-aplicar color de fecha
-    if (window._colors) {
-      document.getElementById('date-day').style.color  = window._colors.segDim;
-      document.getElementById('date-full').style.color = window._colors.segOn;
-      document.getElementById('clock-ghost').style.color = window._colors.segOff;
-      var cr = document.getElementById('clock-real');
-      cr.style.color = window._colors.segOn;
-      cr.style.textShadow = '0 0 16px '+window._colors.glow+', 0 0 40px '+window._colors.glow;
-      document.getElementById('seconds').style.color = window._colors.label;
+    // ── CLIMA ─────────────────────────────────────────────────
+    function fetchWeather() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/api/weather?lat=' + LAT + '&lon=' + LON, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4) return;
+        var el = document.getElementById('weather-section');
+        var c = window._colors || THEMES.green;
+        if (xhr.status === 200) {
+          try {
+            var d = JSON.parse(xhr.responseText), cw = d.current_weather;
+            var h = new Date().getHours();
+            var temp = Math.round(cw.temperature);
+            var sens = Math.round(d.hourly.apparent_temperature[h] !== undefined ? d.hourly.apparent_temperature[h] : temp);
+            var hum = d.hourly.relativehumidity_2m[h] !== undefined ? d.hourly.relativehumidity_2m[h] : '--';
+            var wind = Math.round(cw.windspeed);
+            el.innerHTML =
+              '<div class="temp-wrap">' +
+              '<div class="temp-ghost" style="color:' + c.segOff + '">88!</div>' +
+              '<div class="temp-real" style="color:' + c.segOn + ';text-shadow:0 0 12px ' + c.glow + '">' + temp + '<sup>°C</sup></div>' +
+              '</div>' +
+              '<div class="w-desc" style="color:' + c.segDim + '">' + (WMO[cw.weathercode] || '--') + '</div>' +
+              '<div class="w-meta" style="color:' + c.label + '">FEEL <b style="color:' + c.segOn + '">' + sens + '°</b> &nbsp; HUM <b style="color:' + c.segOn + '">' + hum + '%</b><br>WIND <b style="color:' + c.segOn + '">' + wind + ' KM/H</b></div>';
+          } catch (e) { el.innerHTML = '<div class="msg" style="color:' + c.segDim + '">NO DATA_</div>'; }
+        } else { el.innerHTML = '<div class="msg" style="color:' + c.segDim + '">NO DATA_</div>'; }
+      };
+      xhr.send();
     }
-  }
 
-  // ── CLIMA ─────────────────────────────────────────────────
-  function fetchWeather() {
-    var xhr=new XMLHttpRequest();
-    xhr.open('GET','/api/weather?lat='+LAT+'&lon='+LON,true);
-    xhr.onreadystatechange=function(){
-      if(xhr.readyState!==4) return;
-      var el=document.getElementById('weather-section');
-      var c=window._colors||THEMES.green;
-      if(xhr.status===200){
-        try{
-          var d=JSON.parse(xhr.responseText),cw=d.current_weather;
-          var h=new Date().getHours();
-          var temp=Math.round(cw.temperature);
-          var sens=Math.round(d.hourly.apparent_temperature[h]!==undefined?d.hourly.apparent_temperature[h]:temp);
-          var hum=d.hourly.relativehumidity_2m[h]!==undefined?d.hourly.relativehumidity_2m[h]:'--';
-          var wind=Math.round(cw.windspeed);
-          el.innerHTML=
-            '<div class="temp-wrap">'+
-              '<div class="temp-ghost" style="color:'+c.segOff+'">88!</div>'+
-              '<div class="temp-real" style="color:'+c.segOn+';text-shadow:0 0 12px '+c.glow+'">'+temp+'<sup>°C</sup></div>'+
-            '</div>'+
-            '<div class="w-desc" style="color:'+c.segDim+'">'+(WMO[cw.weathercode]||'--')+'</div>'+
-            '<div class="w-meta" style="color:'+c.label+'">FEEL <b style="color:'+c.segOn+'">'+sens+'°</b> &nbsp; HUM <b style="color:'+c.segOn+'">'+hum+'%</b><br>WIND <b style="color:'+c.segOn+'">'+wind+' KM/H</b></div>';
-        }catch(e){el.innerHTML='<div class="msg" style="color:'+c.segDim+'">NO DATA_</div>';}
-      }else{el.innerHTML='<div class="msg" style="color:'+c.segDim+'">NO DATA_</div>';}
-    };
-    xhr.send();
-  }
+    // ── AGENDA ────────────────────────────────────────────────
+    var todayISO = '';
+    function fetchAgenda() {
+      var xhr = new XMLHttpRequest();
+      var dashSecret = localStorage.getItem('dash-secret') || '';
+      xhr.open('GET', '/api/calendar' + (dashSecret ? '?secret=' + encodeURIComponent(dashSecret) : ''), true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4) return;
+        var list = document.getElementById('agenda-list');
+        var c = window._colors || THEMES.green;
+        if (xhr.status === 200) {
+          try {
+            var data = JSON.parse(xhr.responseText);
+            todayISO = data.today || '';
+            if (!data.events || data.events.length === 0) {
+              list.innerHTML = '<div class="msg" style="color:' + c.segDim + '">NO EVENTS_</div>'; return;
+            }
+            var html = '';
+            for (var i = 0; i < data.events.length; i++) {
+              var ev = data.events[i];
+              var isToday = ev.date === todayISO;
+              var dateLabel = isToday ? 'HOY' : ev.dayLabel + ' ' + ev.dateNum;
+              var timeStr = ev.allDay ? 'ALL DAY' : (ev.start + (ev.end ? ' > ' + ev.end : ''));
+              var dateColor = isToday ? c.segOn : c.segDim;
+              html += '<div class="ev" style="border-color:' + c.segOff + '">' +
+                '<div class="ev-meta">' +
+                '<span class="ev-date" style="color:' + dateColor + '">' + esc(dateLabel) + '</span>' +
+                '<span class="ev-time" style="color:' + c.label + '">' + timeStr + '</span>' +
+                '<span class="ev-cal"  style="color:' + c.label + '">' + esc(ev.calendar.toUpperCase()) + '</span>' +
+                '</div>' +
+                '<div class="ev-title" style="color:' + c.segOn + '">' + esc(ev.title.toUpperCase()) + '</div>' +
+                '</div>';
+            }
+            list.innerHTML = html;
+          } catch (e) { list.innerHTML = '<div class="msg" style="color:' + c.segDim + '">ERR_</div>'; }
+        } else if (xhr.status === 401) {
+          showPassOverlay();
+        } else { list.innerHTML = '<div class="msg" style="color:' + c.segDim + '">NO CONN_</div>'; }
+      };
+      xhr.send();
+    }
 
-  // ── AGENDA ────────────────────────────────────────────────
-  var todayISO='';
-  function fetchAgenda(){
-    var xhr=new XMLHttpRequest();
-    var dashSecret = localStorage.getItem('dash-secret') || '';
-    xhr.open('GET','/api/calendar' + (dashSecret ? '?secret='+encodeURIComponent(dashSecret) : ''), true);
-    xhr.onreadystatechange=function(){
-      if(xhr.readyState!==4) return;
-      var list=document.getElementById('agenda-list');
-      var c=window._colors||THEMES.green;
-      if(xhr.status===200){
-        try{
-          var data=JSON.parse(xhr.responseText);
-          todayISO=data.today||'';
-          if(!data.events||data.events.length===0){
-            list.innerHTML='<div class="msg" style="color:'+c.segDim+'">NO EVENTS_</div>';return;
-          }
-          var html='';
-          for(var i=0;i<data.events.length;i++){
-            var ev=data.events[i];
-            var isToday=ev.date===todayISO;
-            var dateLabel=isToday?'HOY':ev.dayLabel+' '+ev.dateNum;
-            var timeStr=ev.allDay?'ALL DAY':(ev.start+(ev.end?' > '+ev.end:''));
-            var dateColor=isToday?c.segOn:c.segDim;
-            html+='<div class="ev" style="border-color:'+c.segOff+'">'+
-              '<div class="ev-meta">'+
-                '<span class="ev-date" style="color:'+dateColor+'">'+esc(dateLabel)+'</span>'+
-                '<span class="ev-time" style="color:'+c.label+'">'+timeStr+'</span>'+
-                '<span class="ev-cal"  style="color:'+c.label+'">'+esc(ev.calendar.toUpperCase())+'</span>'+
-              '</div>'+
-              '<div class="ev-title" style="color:'+c.segOn+'">'+esc(ev.title.toUpperCase())+'</div>'+
-            '</div>';
-          }
-          list.innerHTML=html;
-        }catch(e){list.innerHTML='<div class="msg" style="color:'+c.segDim+'">ERR_</div>';}
-      } else if(xhr.status===401) {
-        showPassOverlay();
-      } else {list.innerHTML='<div class="msg" style="color:'+c.segDim+'">NO CONN_</div>';}
-    };
-    xhr.send();
-  }
+    function showPassOverlay() {
+      var overlay = document.getElementById('pass-overlay');
+      var c = window._colors || THEMES.green;
+      overlay.style.background = c.bg;
+      overlay.style.display = '-webkit-flex';
+      overlay.style.display = 'flex';
+      document.getElementById('pass-label').style.color = c.segOn;
+      document.getElementById('pass-input').style.color = c.segOn;
+      document.getElementById('pass-input').style.borderColor = c.segDim;
+      document.getElementById('pass-btn').style.color = c.segOn;
+      document.getElementById('pass-btn').style.borderColor = c.segDim;
+      document.getElementById('pass-err').style.color = c.segDim;
+      document.getElementById('pass-err').innerHTML = '';
+      document.getElementById('pass-input').value = '';
+      document.getElementById('pass-input').focus();
+    }
 
-  function showPassOverlay() {
-    var overlay = document.getElementById('pass-overlay');
-    var c = window._colors || THEMES.green;
-    overlay.style.background = c.bg;
-    overlay.style.display = '-webkit-flex';
-    overlay.style.display = 'flex';
-    document.getElementById('pass-label').style.color = c.segOn;
-    document.getElementById('pass-input').style.color = c.segOn;
-    document.getElementById('pass-input').style.borderColor = c.segDim;
-    document.getElementById('pass-btn').style.color = c.segOn;
-    document.getElementById('pass-btn').style.borderColor = c.segDim;
-    document.getElementById('pass-err').style.color = c.segDim;
-    document.getElementById('pass-err').innerHTML = '';
-    document.getElementById('pass-input').value = '';
-    document.getElementById('pass-input').focus();
-  }
+    function submitPass() {
+      var val = document.getElementById('pass-input').value;
+      if (!val) return;
+      localStorage.setItem('dash-secret', val);
+      document.getElementById('pass-overlay').style.display = 'none';
+      document.getElementById('agenda-list').innerHTML = '<div class="msg">LOADING_</div>';
+      fetchAgenda();
+    }
 
-  function submitPass() {
-    var val = document.getElementById('pass-input').value;
-    if (!val) return;
-    localStorage.setItem('dash-secret', val);
-    document.getElementById('pass-overlay').style.display = 'none';
-    document.getElementById('agenda-list').innerHTML = '<div class="msg">LOADING_</div>';
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+    // ── INIT ──────────────────────────────────────────────────
+    var savedTheme = localStorage.getItem('casio-theme') || 'green';
+    applyTheme(savedTheme);
+
+    updateClock();
+    setInterval(updateClock, 1000);
+    fetchWeather();
+    setInterval(fetchWeather, 10 * 60 * 1000);
     fetchAgenda();
-  }
-
-  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-
-  // ── INIT ──────────────────────────────────────────────────
-  var savedTheme = localStorage.getItem('casio-theme')||'green';
-  applyTheme(savedTheme);
-
-  updateClock();
-  setInterval(updateClock,1000);
-  fetchWeather();
-  setInterval(fetchWeather,10*60*1000);
-  fetchAgenda();
-  setInterval(fetchAgenda,15*60*1000);
-  document.addEventListener('touchstart',function(){},false);
-</script>
+    setInterval(fetchAgenda, 15 * 60 * 1000);
+    document.addEventListener('touchstart', function () { }, false);
+  </script>
 </body>
+
 </html>
