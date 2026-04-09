@@ -15,7 +15,7 @@
         url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Regular.woff') format('woff');
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <!-- Estilos de tema inyectados por JS -->
   <style id="theme-style"></style>
   <style>
@@ -40,29 +40,37 @@
       align-items: center;
       -webkit-justify-content: center;
       justify-content: center;
-      font-family: 'Share Tech Mono', 'Courier New', monospace;
+      font-family: 'Press Start 2P', monospace;
+      /* 8-bit font, no anti-aliasing needed for this look */
+      -webkit-font-smoothing: none;
+      background-color: #000;
     }
 
     .watch {
-      width: 92vw;
-      height: 88vh;
-      border-width: 2px;
+      width: 96vw;
+      height: 92vh;
+      border-width: 4px;
       border-style: solid;
-      border-radius: 6px;
+      border-color: #fff;
+      /* Chunky border for 8-bit feel */
       position: relative;
       display: -webkit-flex;
       display: flex;
       -webkit-flex-direction: column;
       flex-direction: column;
       overflow: hidden;
+      background-color: #000;
+      /* Image rendering for pixel art aesthetics */
+      image-rendering: pixelated;
     }
 
     .watch-inner {
       position: absolute;
-      inset: 5px;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 4px;
+      inset: 8px;
+      border-width: 2px;
+      border-style: dashed;
+      /* Dashed inner border */
+      border-color: #fff;
       pointer-events: none;
       z-index: 1;
     }
@@ -77,37 +85,46 @@
       align-items: center;
       -webkit-justify-content: space-between;
       justify-content: space-between;
-      padding: 1.2vh 2.5vw 0.8vh;
-      border-bottom-width: 1px;
+      padding: 2vh 3vw 1.5vh;
+      border-bottom-width: 4px;
       border-bottom-style: solid;
+      border-bottom-color: #fff;
       position: relative;
       z-index: 2;
     }
 
     .h-label {
-      font-size: 1vw;
-      letter-spacing: 0.22em;
+      font-size: 1.5vw;
+      letter-spacing: 0px;
       text-transform: uppercase;
+      color: #fff;
     }
 
     .modes {
       display: -webkit-flex;
       display: flex;
-      gap: 0.6vw;
+      gap: 1.5vw;
     }
 
     .mode-btn {
-      font-family: 'Share Tech Mono', 'Courier New', monospace;
-      font-size: 0.85vw;
-      letter-spacing: 0.15em;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.2vw;
       cursor: pointer;
       background: none;
-      border-width: 1px;
+      border-width: 2px;
       border-style: solid;
-      padding: 0.3vh 0.7vw;
-      border-radius: 2px;
+      border-color: #fff;
+      color: #fff;
+      padding: 1vh 1.5vw;
       -webkit-user-select: none;
       user-select: none;
+      box-shadow: 2px 2px 0px #fff;
+      /* Retro drop shadow */
+      margin-bottom: 2px;
+    }
+    .mode-btn:active {
+        box-shadow: 0px 0px 0px #fff;
+        transform: translate(2px, 2px);
     }
 
     /* HORA */
@@ -122,33 +139,36 @@
       justify-content: center;
       -webkit-flex: 1.3;
       flex: 1.3;
-      border-bottom-width: 1px;
+      border-bottom-width: 4px;
       border-bottom-style: solid;
+      border-bottom-color: #fff;
       position: relative;
       z-index: 2;
+      background: repeating-linear-gradient(
+          0deg,
+          rgba(0,0,0,0) 0px,
+          rgba(0,0,0,0) 2px,
+          rgba(255,255,255,0.05) 2px,
+          rgba(255,255,255,0.05) 4px
+      );
     }
 
     .lcd-wrap {
       position: relative;
       display: inline-block;
-      line-height: 1;
+      line-height: normal;
     }
 
     .lcd-ghost {
-      font-family: 'DSEG7', 'Courier New', monospace;
-      font-size: 20vw;
-      letter-spacing: 0.04em;
-      position: absolute;
-      top: 0;
-      left: 0;
-      pointer-events: none;
+      display: none; /* No ghost in 8-bit */
     }
 
     .lcd-real {
-      font-family: 'DSEG7', 'Courier New', monospace;
-      font-size: 20vw;
-      letter-spacing: 0.04em;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 12vw;
+      letter-spacing: -2px;
       position: relative;
+      color: #fff;
     }
 
     .sep-blink {
@@ -183,13 +203,13 @@
     .date-row {
       display: -webkit-flex;
       display: flex;
-      gap: 4vw;
-      margin-top: 5vh;
+      gap: 3vw;
+      margin-top: 2vh;
     }
 
     .date-chip {
-      font-size: 3vw;
-      letter-spacing: 0.22em;
+      font-size: 2vw;
+      letter-spacing: 0px;
       text-transform: uppercase;
     }
 
@@ -213,45 +233,43 @@
       display: flex;
       -webkit-flex-direction: column;
       flex-direction: column;
-      padding: 1.5vh 2.5vw;
+      padding: 2vh 3vw;
       overflow: hidden;
     }
 
-    .panel-left {
-      border-right-width: 1px;
+    .panel-left, .panel-mid {
+      border-right-width: 4px;
       border-right-style: solid;
+      border-right-color: #fff;
     }
 
     .panel-label {
-      font-size: 0.9vw;
-      letter-spacing: 0.3em;
+      font-size: 1vw;
+      letter-spacing: 0px;
       text-transform: uppercase;
-      margin-bottom: 1vh;
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
-      padding-bottom: 0.5vh;
+      margin-bottom: 2vh;
+      border-bottom-width: 2px;
+      border-bottom-style: dashed;
+      border-bottom-color: #fff;
+      padding-bottom: 1vh;
+      color: #fff;
     }
 
     /* CLIMA */
     .temp-wrap {
       position: relative;
       display: inline-block;
-      line-height: 1;
+      line-height: normal;
     }
 
     .temp-ghost {
-      font-family: 'DSEG7', 'Courier New', monospace;
-      font-size: 9vw;
-      letter-spacing: 0.04em;
-      position: absolute;
-      top: 0;
-      left: 0;
+      display: none;
     }
 
     .temp-real {
-      font-family: 'DSEG7', 'Courier New', monospace;
-      font-size: 9vw;
-      letter-spacing: 0.04em;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 5vw;
+      letter-spacing: 0px;
       position: relative;
     }
 
@@ -263,16 +281,48 @@
     }
 
     .w-desc {
-      margin-top: 0.8vh;
-      font-size: 1.05vw;
-      letter-spacing: 0.1em;
+      margin-top: 1.5vh;
+      font-size: 1.5vw;
+      letter-spacing: 0px;
       text-transform: uppercase;
     }
 
     .w-meta {
-      margin-top: 0.6vh;
-      font-size: 1.05vw;
-      line-height: 1.9;
+      margin-top: 1vh;
+      font-size: 1.2vw;
+      line-height: 2;
+    }
+
+    /* STRAVA */
+    .st-metric {
+      margin-bottom: 2vh;
+    }
+    .st-label {
+      font-size: 1vw;
+      margin-bottom: 1vh;
+      text-transform: uppercase;
+    }
+    .st-val {
+      font-size: 2vw;
+    }
+    .st-unit {
+      font-size: 1.2vw;
+      margin-left: 0.5vw;
+    }
+    .st-text {
+      font-size: 1.2vw;
+      line-height: 1.5;
+    }
+    .st-bar-wrap {
+      width: 100%;
+      height: 2vh;
+      border-width: 4px;
+      border-style: solid;
+      padding: 0;
+      margin-top: 0.5vh;
+    }
+    .st-bar {
+      height: 100%;
     }
 
     /* AGENDA */
@@ -281,7 +331,7 @@
       display: flex;
       -webkit-flex-direction: column;
       flex-direction: column;
-      gap: 0.55vh;
+      gap: 1.5vh;
       overflow: hidden;
     }
 
@@ -290,11 +340,13 @@
       display: flex;
       -webkit-flex-direction: column;
       flex-direction: column;
-      gap: 0.2vh;
-      padding: 0.5vh 0.8vw;
-      border-width: 1px;
+      gap: 1vh;
+      padding: 1.5vh 2vw;
+      border-width: 4px;
       border-style: solid;
-      background: rgba(0, 0, 0, 0.2);
+      background: #000;
+      /* Box shadow for a slight retro lift */
+      box-shadow: 4px 4px 0px rgba(255,255,255,0.1);
     }
 
     .ev-meta {
@@ -304,43 +356,44 @@
       flex-direction: row;
       -webkit-align-items: center;
       align-items: center;
-      gap: 0.8vw;
+      gap: 1.5vw;
     }
 
     .ev-date {
-      font-size: 0.9vw;
+      font-size: 1.2vw;
       -webkit-flex-shrink: 0;
       flex-shrink: 0;
-      min-width: 4.5vw;
-      letter-spacing: 0.05em;
+      min-width: 6vw;
+      letter-spacing: 0px;
     }
 
     .ev-time {
-      font-size: 0.9vw;
+      font-size: 1.2vw;
       -webkit-flex-shrink: 0;
       flex-shrink: 0;
-      letter-spacing: 0.04em;
+      letter-spacing: 0px;
     }
 
     .ev-cal {
-      font-size: 0.8vw;
-      letter-spacing: 0.06em;
+      font-size: 1vw;
+      letter-spacing: 0px;
       margin-left: auto;
       -webkit-flex-shrink: 0;
       flex-shrink: 0;
+      text-align: right;
     }
 
     .ev-title {
-      font-size: 1.15vw;
-      letter-spacing: 0.04em;
+      font-size: 1.5vw;
+      letter-spacing: 0px;
       white-space: normal;
       word-break: break-word;
-      line-height: 1.3;
+      line-height: 1.5;
     }
 
     .msg {
-      font-size: 1.1vw;
-      letter-spacing: 0.1em;
+      font-size: 1.5vw;
+      letter-spacing: 0px;
       text-transform: uppercase;
     }
   </style>
@@ -378,6 +431,12 @@
           <div class="msg" id="w-msg">LOADING_</div>
         </div>
       </div>
+      <div class="panel panel-mid" id="panel-mid">
+        <div class="panel-label" id="panel-label-mid">&#9670; STRAVA DATA</div>
+        <div id="strava-section">
+          <div class="msg" id="st-msg">LOADING_</div>
+        </div>
+      </div>
       <div class="panel" id="panel-right">
         <div class="panel-label" id="panel-label-right">&#9632; SCHEDULE &#8212; NEXT 7 DAYS</div>
         <div class="ev-list" id="agenda-list">
@@ -389,12 +448,12 @@
     <!-- Password overlay -->
     <div id="pass-overlay"
       style="display:none;position:absolute;inset:0;z-index:100;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:12px;">
-      <div id="pass-label" style="font-family:'Share Tech Mono',monospace;font-size:3vw;letter-spacing:0.1em;">ENTER
+      <div id="pass-label" style="font-family:'Press Start 2P',monospace;font-size:3vw;letter-spacing:0px;">ENTER
         PASSWORD</div>
       <input id="pass-input" type="password" autocomplete="off" onkeydown="if(event.keyCode===13)submitPass();"
-        style="background:transparent;border-width:1px;border-style:solid;border-radius:3px;padding:8px 14px;font-family:'Share Tech Mono',monospace;font-size:3.5vw;width:50vw;text-align:center;outline:none;" />
+        style="background:transparent;border-width:4px;border-style:solid;border-radius:0px;padding:12px 14px;font-family:'Press Start 2P',monospace;font-size:3.5vw;width:50vw;text-align:center;outline:none;" />
       <div id="pass-btn"
-        style="font-family:'Share Tech Mono',monospace;font-size:3vw;padding:8px 24px;border-width:1px;border-style:solid;border-radius:3px;cursor:pointer;letter-spacing:0.15em;"
+        style="font-family:'Press Start 2P',monospace;font-size:3vw;padding:12px 24px;border-width:4px;border-style:solid;border-radius:0px;cursor:pointer;letter-spacing:0px;"
         onclick="submitPass()">OK</div>
       <div id="pass-err" style="font-size:2.5vw;opacity:0.6;min-height:1em;"></div>
     </div>
@@ -415,37 +474,37 @@
     // ── TEMAS (colores directos, sin CSS variables) ────────────
     var THEMES = {
       green: {
-        bodyBg: '#0A0A08',
-        screenBg: '#141F0C',
-        segOn: '#B8D870',
-        segOff: '#1E2E10',
-        segDim: '#4A6228',
-        border: '#3A5220',
-        label: '#527030',
-        glow: 'rgba(168,210,80,0.35)',
-        scanline: 'rgba(0,0,0,0.22)'
+        bodyBg: '#000000',
+        screenBg: '#0f380f', /* Game Boy dark green */
+        segOn: '#8bac0f', /* Game Boy light green */
+        segOff: '#306230', /* Game Boy medium green */
+        segDim: '#306230',
+        border: '#8bac0f',
+        label: '#8bac0f',
+        glow: 'rgba(0,0,0,0)', /* No glow in 8-bit */
+        scanline: 'rgba(0,0,0,0.1)'
       },
       blue: {
-        bodyBg: '#05080F',
-        screenBg: '#0A1020',
-        segOn: '#70B8FF',
-        segOff: '#0E1E32',
-        segDim: '#204060',
-        border: '#1A4070',
-        label: '#2A5080',
-        glow: 'rgba(80,160,255,0.35)',
-        scanline: 'rgba(0,0,0,0.22)'
+        bodyBg: '#000000',
+        screenBg: '#000055', /* C64 style blue */
+        segOn: '#55ffff',
+        segOff: '#0000aa',
+        segDim: '#0000aa',
+        border: '#55ffff',
+        label: '#55ffff',
+        glow: 'rgba(0,0,0,0)',
+        scanline: 'rgba(0,0,0,0.1)'
       },
       mono: {
-        bodyBg: '#050505',
-        screenBg: '#0F0F0F',
-        segOn: '#DEDEDE',
-        segOff: '#1C1C1C',
-        segDim: '#4A4A4A',
-        border: '#333333',
-        label: '#444444',
-        glow: 'rgba(210,210,210,0.2)',
-        scanline: 'rgba(0,0,0,0.28)'
+        bodyBg: '#000000',
+        screenBg: '#111111',
+        segOn: '#ffffff',
+        segOff: '#555555',
+        segDim: '#555555',
+        border: '#ffffff',
+        label: '#ffffff',
+        glow: 'rgba(0,0,0,0)',
+        scanline: 'rgba(0,0,0,0.1)'
       }
     };
 
@@ -474,21 +533,24 @@
         }
       }
       // Time block
-      document.getElementById('time-block').style.borderBottomColor = c.segOff;
+      document.getElementById('time-block').style.borderBottomColor = c.border;
       // Clock ghost/real
-      document.getElementById('clock-ghost').style.color = c.segOff;
       var cr = document.getElementById('clock-real');
       cr.style.color = c.segOn;
-      cr.style.textShadow = '0 0 16px ' + c.glow + ', 0 0 40px ' + c.glow;
+      cr.style.textShadow = 'none'; // No glow in 8-bit
       // Date chips
       colorEls('date-chip', c.segDim);
       var df = document.getElementById('date-full');
       if (df) df.style.color = c.segOn;
       // Panels
       document.getElementById('panel-left').style.borderRightColor = c.segOff;
+      document.getElementById('panel-mid').style.borderRightColor = c.segOff;
       colorEls('panel-label', c.label);
       document.getElementById('panel-label-left').style.borderBottomColor = c.segOff;
+      document.getElementById('panel-label-mid').style.borderBottomColor = c.segOff;
       document.getElementById('panel-label-right').style.borderBottomColor = c.segOff;
+      // Strava
+      applyStravaColors(c);
       // Weather
       applyWeatherColors(c);
       // Agenda
@@ -504,13 +566,26 @@
       for (var i = 0; i < els.length; i++) els[i].style.color = color;
     }
 
-    function applyWeatherColors(c) {
+    function applyStravaColors(c) {
+      colorEls('st-lbl', c.segDim);
+      colorEls('st-v', c.segOn);
+      colorEls('st-u', c.label);
+      colorEls('st-t', c.segOn);
+      var wbs = document.getElementsByClassName('st-bw');
+      for(var i=0; i<wbs.length; i++) wbs[i].style.borderColor = c.segOff;
+      var sb = document.getElementsByClassName('st-b');
+      for(var i=0; i<sb.length; i++) sb[i].style.backgroundColor = c.segOn;
+      var msg = document.getElementById('st-msg');
+      if (msg) msg.style.color = c.segDim;
+    }
+
+function applyWeatherColors(c) {
       var tg = document.querySelector('.temp-ghost');
       var tr = document.querySelector('.temp-real');
       var wd = document.querySelector('.w-desc');
       var wm = document.querySelector('.w-meta');
       if (tg) tg.style.color = c.segOff;
-      if (tr) { tr.style.color = c.segOn; tr.style.textShadow = '0 0 12px ' + c.glow; }
+      if (tr) { tr.style.color = c.segOn; tr.style.textShadow = 'none'; }
       if (wd) wd.style.color = c.segDim;
       if (wm) { wm.style.color = c.label; colorBolds(wm, c.segOn); }
       var msg = document.getElementById('w-msg');
@@ -543,7 +618,6 @@
       var now = new Date();
       document.getElementById('clock-real').innerHTML =
         pad(now.getHours()) + '<span class="sep-blink">:</span>' + pad(now.getMinutes());
-      document.getElementById('clock-ghost').innerHTML = '88<span>:</span>88';
       document.getElementById('seconds').textContent = pad(now.getSeconds());
       document.getElementById('date-day').textContent = DIAS[now.getDay()];
       document.getElementById('date-full').textContent =
@@ -552,10 +626,9 @@
       if (window._colors) {
         document.getElementById('date-day').style.color = window._colors.segDim;
         document.getElementById('date-full').style.color = window._colors.segOn;
-        document.getElementById('clock-ghost').style.color = window._colors.segOff;
         var cr = document.getElementById('clock-real');
         cr.style.color = window._colors.segOn;
-        cr.style.textShadow = '0 0 16px ' + window._colors.glow + ', 0 0 40px ' + window._colors.glow;
+        cr.style.textShadow = 'none';
         document.getElementById('seconds').style.color = window._colors.label;
       }
     }
@@ -578,13 +651,69 @@
             var wind = Math.round(cw.windspeed);
             el.innerHTML =
               '<div class="temp-wrap">' +
-              '<div class="temp-ghost" style="color:' + c.segOff + '">88!</div>' +
-              '<div class="temp-real" style="color:' + c.segOn + ';text-shadow:0 0 12px ' + c.glow + '">' + temp + '<sup>°C</sup></div>' +
+              '<div class="temp-real" style="color:' + c.segOn + ';text-shadow:none">' + temp + '<sup>°C</sup></div>' +
               '</div>' +
               '<div class="w-desc" style="color:' + c.segDim + '">' + (WMO[cw.weathercode] || '--') + '</div>' +
               '<div class="w-meta" style="color:' + c.label + '">FEEL <b style="color:' + c.segOn + '">' + sens + '°</b> &nbsp; HUM <b style="color:' + c.segOn + '">' + hum + '%</b><br>WIND <b style="color:' + c.segOn + '">' + wind + ' KM/H</b></div>';
           } catch (e) { el.innerHTML = '<div class="msg" style="color:' + c.segDim + '">NO DATA_</div>'; }
         } else { el.innerHTML = '<div class="msg" style="color:' + c.segDim + '">NO DATA_</div>'; }
+      };
+      xhr.send();
+    }
+
+    // ── STRAVA ─────────────────────────────────────────────────
+    function fetchStrava() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/api/strava', true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4) return;
+        var el = document.getElementById('strava-section');
+        var c = window._colors || THEMES.green;
+        if (xhr.status === 200) {
+          try {
+            var data = JSON.parse(xhr.responseText);
+            var gearHtml = '';
+            if (data.gear && data.gear.length > 0) {
+              var shoe = data.gear.find(function(g) { return g.type === 'shoe' && g.primary; }) || data.gear.find(function(g) { return g.type === 'shoe'; });
+              if (shoe) {
+                gearHtml = '<div class="st-metric">' +
+                  '<div class="st-label st-lbl" style="color:' + c.segDim + '">SHOES</div>' +
+                  '<div class="st-text st-t" style="color:' + c.segOn + '">' + esc(shoe.name.toUpperCase()) + ' (' + Math.round(shoe.distance) + 'K)</div>' +
+                  '</div>';
+              }
+            }
+            
+            var lastActHtml = '';
+            if (data.lastActivity) {
+               lastActHtml = '<div class="st-metric">' +
+                 '<div class="st-label st-lbl" style="color:' + c.segDim + '">LAST ACT</div>' +
+                 '<div class="st-text st-t" style="color:' + c.segOn + '">' + esc(data.lastActivity.name.toUpperCase()) + ' ' + Math.round(data.lastActivity.distance) + 'K</div>' +
+                 '</div>';
+            }
+
+            var goal = 50.0;
+            var pct = Math.min(100, Math.round((parseFloat(data.weeklyKm) / goal) * 100));
+
+            el.innerHTML = 
+              '<div class="st-metric">' +
+                '<div class="st-label st-lbl" style="color:' + c.segDim + '">WK DISTANCE</div>' +
+                '<div class="st-val st-v" style="color:' + c.segOn + '">' + data.weeklyKm + '<span class="st-unit st-u" style="color:' + c.label + '">KM</span></div>' +
+              '</div>' +
+              '<div class="st-metric">' +
+                '<div class="st-label st-lbl" style="color:' + c.segDim + '">WEEKLY GOAL (' + goal + 'K)</div>' +
+                '<div class="st-bar-wrap st-bw" style="border-color:' + c.segOff + '">' +
+                  '<div class="st-bar st-b" style="width: ' + pct + '%; background-color:' + c.segOn + ';"></div>' +
+                '</div>' +
+              '</div>' +
+              lastActHtml +
+              gearHtml;
+
+          } catch (e) {
+             el.innerHTML = '<div class="msg" id="st-msg" style="color:' + c.segDim + '">NO DATA_</div>';
+          }
+        } else {
+             el.innerHTML = '<div class="msg" id="st-msg" style="color:' + c.segDim + '">NO CONN_</div>';
+        }
       };
       xhr.send();
     }
@@ -667,6 +796,8 @@
     setInterval(updateClock, 1000);
     fetchWeather();
     setInterval(fetchWeather, 10 * 60 * 1000);
+    fetchStrava();
+    setInterval(fetchStrava, 15 * 60 * 1000);
     fetchAgenda();
     setInterval(fetchAgenda, 15 * 60 * 1000);
     document.addEventListener('touchstart', function () { }, false);
