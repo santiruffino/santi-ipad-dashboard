@@ -38,7 +38,15 @@ module.exports = async function handler(req, res) {
         ]);
 
         if (!athleteRes.ok || !activitiesRes.ok) {
-            return res.status(502).json({ error: 'Failed to fetch data from Strava API' });
+            const athleteErr = athleteRes.ok ? null : await athleteRes.text();
+            const activitiesErr = activitiesRes.ok ? null : await activitiesRes.text();
+            return res.status(502).json({ 
+                error: 'Failed to fetch data from Strava API',
+                athleteStatus: athleteRes.status,
+                activitiesStatus: activitiesRes.status,
+                athleteError: athleteErr,
+                activitiesError: activitiesErr
+            });
         }
 
         const athleteData = await athleteRes.json();
@@ -102,7 +110,7 @@ module.exports = async function handler(req, res) {
             }
         });
 
-        weeklyKmStr = (weeklyKm / 1000).toFixed(1);
+        const weeklyKmStr = (weeklyKm / 1000).toFixed(1);
 
         // 5. Build final response
         res.status(200).json({
