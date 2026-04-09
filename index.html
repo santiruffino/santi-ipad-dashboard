@@ -227,14 +227,27 @@
     }
 
     .panel {
-      -webkit-flex: 1;
-      flex: 1;
       display: -webkit-flex;
       display: flex;
       -webkit-flex-direction: column;
       flex-direction: column;
-      padding: 2vh 3vw;
+      padding: 2vh 2vw; /* Reduced from 3vw */
       overflow: hidden;
+    }
+
+    .panel-left {
+      -webkit-flex: 0.85;
+      flex: 0.85;
+    }
+
+    .panel-mid {
+      -webkit-flex: 1;
+      flex: 1;
+    }
+
+    .panel-right {
+      -webkit-flex: 1.35;
+      flex: 1.35;
     }
 
     .panel-left, .panel-mid {
@@ -268,13 +281,13 @@
 
     .temp-real {
       font-family: 'Press Start 2P', monospace;
-      font-size: 5vw;
+      font-size: 4.5vw;
       letter-spacing: 0px;
       position: relative;
     }
 
     .temp-real sup {
-      font-size: 2.5vw;
+      font-size: 2vw;
       vertical-align: super;
       opacity: 0.75;
       font-family: 'Share Tech Mono', 'Courier New', monospace;
@@ -282,14 +295,14 @@
 
     .w-desc {
       margin-top: 1.5vh;
-      font-size: 1.5vw;
+      font-size: 1.3vw;
       letter-spacing: 0px;
       text-transform: uppercase;
     }
 
     .w-meta {
       margin-top: 1vh;
-      font-size: 1.2vw;
+      font-size: 1vw;
       line-height: 2;
     }
 
@@ -303,14 +316,14 @@
       text-transform: uppercase;
     }
     .st-val {
-      font-size: 2vw;
+      font-size: 1.8vw;
     }
     .st-unit {
-      font-size: 1.2vw;
+      font-size: 1vw;
       margin-left: 0.5vw;
     }
     .st-text {
-      font-size: 1.2vw;
+      font-size: 1.1vw;
       line-height: 1.5;
     }
     .st-bar-wrap {
@@ -360,15 +373,15 @@
     }
 
     .ev-date {
-      font-size: 1.2vw;
+      font-size: 1.1vw;
       -webkit-flex-shrink: 0;
       flex-shrink: 0;
-      min-width: 6vw;
+      min-width: 5vw;
       letter-spacing: 0px;
     }
 
     .ev-time {
-      font-size: 1.2vw;
+      font-size: 1.1vw;
       -webkit-flex-shrink: 0;
       flex-shrink: 0;
       letter-spacing: 0px;
@@ -384,7 +397,7 @@
     }
 
     .ev-title {
-      font-size: 1.5vw;
+      font-size: 1.3vw;
       letter-spacing: 0px;
       white-space: normal;
       word-break: break-word;
